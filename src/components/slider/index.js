@@ -12,7 +12,7 @@ function Slider(props) {
       let newSliderSwiper = new Swiper(".slider-container", {
         loop: true,
         autoplay: {
-          delay: 1000,
+          delay: 3000,
           disableOnInteraction: false
         },
         pagination: { el: ".swiper-pagination" }

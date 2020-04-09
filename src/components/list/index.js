@@ -2,16 +2,16 @@ import React from 'react';
 import { ListWrapper, ListItem, List } from './style';
 import { getCount } from '../../api/util';
 
-function recommendList(props) {
-  const { recommendList } = props;
+function RecommendList(props) {
+  // const { recommendList } = props;
   return (
     <ListWrapper>
       <h1 className="title">推荐歌单</h1>
       <List>
         {
-          recommendList.map((item, index) => {
+          props.recommendList.map((item, index) => {
             return (
-              <ListItem key={item.id + index}>
+              <ListItem key={item.id}>
                 <div className="img_wrapper">
                   <div className="decorato"></div>
                   <img src={`${item.picUrl}?param=300x300`} width="100%" height="100%" alt="music" />
@@ -30,4 +30,4 @@ function recommendList(props) {
   )
 }
 
-export default recommendList;
+export default React.memo(RecommendList);
