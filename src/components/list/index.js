@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactLazyLoad from 'react-lazyload';
 import { ListWrapper, ListItem, List } from './style';
 import { getCount } from '../../api/util';
 
@@ -14,7 +15,9 @@ function RecommendList(props) {
               <ListItem key={item.id}>
                 <div className="img_wrapper">
                   <div className="decorato"></div>
-                  <img src={`${item.picUrl}?param=300x300`} width="100%" height="100%" alt="music" />
+                  <ReactLazyLoad placeholder={<img width="100%" height="100%" src={require('./music.png')} alt="music" />}>
+                    <img src={`${item.picUrl}?param=300x300`} width="100%" height="100%" alt="music" />
+                  </ReactLazyLoad>
                   <div className="play_count">
                     <i className="iconfont play">&#xe885;</i>
                     <span className="count">{getCount(item.playCount)}</span>
